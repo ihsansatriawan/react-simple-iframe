@@ -1,16 +1,26 @@
 {
   "name": "react-simple-iframe",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple Iframe React Component",
   "main": "build/index.js",
   "peerDependencies": {
     "react": "^15.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+github.com:ihsansatriawan/react-simple-iframe.git"
   },
   "dependencies": {
     "react": "^15.6.2",
     "webpack": "^2.6.1",
     "prop-types": "15.6.0"
   },
+  "keywords": [
+    "react",
+    "iframe",
+    "simple"
+  ],
+  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack --watch",
