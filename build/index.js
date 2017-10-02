@@ -499,6 +499,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(6);
@@ -518,13 +520,25 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var IframeWeb = function (_Component) {
   _inherits(IframeWeb, _Component);
 
-  function IframeWeb() {
+  function IframeWeb(props) {
     _classCallCheck(this, IframeWeb);
 
-    return _possibleConstructorReturn(this, (IframeWeb.__proto__ || Object.getPrototypeOf(IframeWeb)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (IframeWeb.__proto__ || Object.getPrototypeOf(IframeWeb)).call(this, props));
+
+    _this.state = {
+      properties: {}
+    };
+    return _this;
   }
 
   _createClass(IframeWeb, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var newProps = _extends({}, this.props);
+      delete newProps.onLoaded;
+      this.setState({ properties: newProps });
+    }
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.iframe.addEventListener('load', this.props.onLoaded);
@@ -534,14 +548,9 @@ var IframeWeb = function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var _props = this.props,
-          src = _props.src,
-          className = _props.className,
-          frameBorder = _props.frameBorder;
-
-      return _react2.default.createElement('iframe', { ref: function ref(c) {
+      return _react2.default.createElement('iframe', _extends({ ref: function ref(c) {
           _this2.iframe = c;
-        }, src: src, className: className, frameBorder: frameBorder });
+        } }, this.state.properties));
     }
   }]);
 
@@ -549,10 +558,7 @@ var IframeWeb = function (_Component) {
 }(_react.Component);
 
 IframeWeb.propTypes = {
-  onLoaded: _propTypes.func,
-  src: _propTypes.string,
-  className: _propTypes.string,
-  frameBorder: _propTypes.string
+  onLoaded: _propTypes.func
 };
 
 exports.default = IframeWeb;
