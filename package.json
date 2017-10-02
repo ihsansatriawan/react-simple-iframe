@@ -1,6 +1,6 @@
 {
   "name": "react-simple-iframe",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Simple Iframe React Component",
   "main": "build/index.js",
   "peerDependencies": {
