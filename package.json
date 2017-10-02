@@ -1,6 +1,6 @@
 {
   "name": "react-simple-iframe",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Simple Iframe React Component",
   "main": "build/index.js",
   "peerDependencies": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+github.com:ihsansatriawan/react-simple-iframe.git"
+    "url": "https://github.com/ihsansatriawan/react-simple-iframe.git"
   },
   "dependencies": {
     "react": "^15.6.2",
