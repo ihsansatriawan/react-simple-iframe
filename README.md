@@ -7,6 +7,14 @@
 
 Simple react component to embeded iframed page and give a callback when completed load content
 
+## Install
+
+```
+npm install react-simple-iframe
+OR
+yarn add react-simple-iframe
+```
+
 ## Usage
 ```
 import React, { Component } from 'react';
